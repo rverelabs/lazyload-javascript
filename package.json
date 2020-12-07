@@ -1,0 +1,22 @@
+{
+  "name": "lazyload-javascript",
+  "version": "1.0.0",
+  "description": "Advanced deferral strategies for JavaScript",
+  "main": "lazyload-javascript.js",
+  "scripts": {
+    "build": "minify lazyload-javascript.js > lazyload-javascript.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rverelabs/lazyload-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rverelabs/lazyload-javascript/issues"
+  },
+  "homepage": "https://github.com/rverelabs/lazyload-javascript#readme",
+  "devDependencies": {
+    "minify": "^6.0.1"
+  }
+}
