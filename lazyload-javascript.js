@@ -5,9 +5,7 @@
       var lazyLoadNodes = document.getElementsByClassName("load-onscroll");
       var breakpoints = {};
       var waiting = false;      
-      
-      window.breakpoints = breakpoints;
-      
+            
       for (var i = 0; i < lazyLoadNodes.length; i++) {
           var node = lazyLoadNodes[i];
           var depth = node.dataset.depth ? parseInt(node.dataset.depth) : 0;
@@ -31,9 +29,17 @@
               s.type = 'text/javascript';
               s.async = true;
               for (var j = 0; j < scriptNode.attributes.length; j++) {
-                  s.setAttribute(scriptNode.attributes[j].nodeName,
-                                  scriptNode.attributes[j].nodeValue);
+                s.setAttribute(scriptNode.attributes[j].nodeName,
+                                scriptNode.attributes[j].nodeValue);
               }
+
+            if (!s.src) {
+                var b = new Blob([scriptNode.innerHTML], { type: 'text/javascript' });
+                var u = URL.createObjectURL(b);
+                s.src = u;
+                s.async = false;                
+            }
+
               lazyloadNode.parentNode.insertBefore(s, lazyloadNode);
               lazyloadNode.parentElement.removeChild(lazyloadNode);
           }
